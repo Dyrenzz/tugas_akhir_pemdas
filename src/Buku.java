@@ -26,13 +26,29 @@ public class Buku {
     public ArrayList<String> getPenulis() {
         return penulis;
     }
-    
+
+    public String getPenulisString() {
+        String names = "";
+
+        if (penulis.size() <= 0) {
+            names += "Anomali";
+        }
+        else if (penulis.size() > 2) {
+            names += penulis.get(0);
+            names += ", dkk.";
+        } 
+        else {
+            for (String name: penulis) {
+                names += name;
+                names += ", ";
+            }
+        }
+        return names;
+    }
     
 
     public void dipinjam() {
-        if (cekKetersediaan()) {
-            jumlah--;
-        }
+        jumlah--;
     }
 
     public void dikembalikan() {
@@ -45,5 +61,9 @@ public class Buku {
         } else {
             return false;
         }
+    }
+
+    public void tampilkan() {
+        System.out.printf("| %-4s | %-30s | %-30s | %2s |%n", id, judul, getPenulisString(), String.valueOf(jumlah));
     }
 }

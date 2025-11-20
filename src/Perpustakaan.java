@@ -1,49 +1,50 @@
+import java.util.ArrayList;
+
 public class Perpustakaan {
-
-    String nama;
-    String alamat;
-
-    Buku[] daftarBuku = new Buku[50];
-    Member[] daftarMember = new Member[50];
-    Petugas[] daftarPetugas = new Petugas[20];
-    Peminjaman[] daftarPeminjaman = new Peminjaman[100];
-
-    int jumlahBuku = 0;
-    int jumlahMember = 0;
-    int jumlahPetugas = 0;
-    int jumlahPeminjaman = 0;
+    private String nama;
+    private String alamat;
+    private ArrayList<Buku> daftarBuku;
+    private ArrayList<Member> daftarMember;
+    private ArrayList<Petugas> daftarPetugas;
+    private ArrayList<Peminjaman> daftarPeminjaman;
 
     public Perpustakaan(String nama, String alamat) {
         this.nama = nama;
         this.alamat = alamat;
+        this.daftarBuku = new ArrayList<>();
+        this.daftarMember = new ArrayList<>();
+        this.daftarPetugas = new ArrayList<>();
+        this.daftarPeminjaman = new ArrayList<>();
     }
 
     public void tambahBuku(Buku buku) {
-        daftarBuku[jumlahBuku] = buku;
-        jumlahBuku++;
+        daftarBuku.add(buku);
     }
 
     public Buku cariBuku(String judul) {
-        for (int i = 0; i < jumlahBuku; i++) {
-            if (daftarBuku[i].judul.equalsIgnoreCase(judul)) {
-                return daftarBuku[i];
-            }
+        for(Buku buku: daftarBuku) {
+            if (buku.getJudul().equalsIgnoreCase(judul))
+                return buku;
         }
         return null;
     }
 
     public void tampilkanDaftarBuku() {
-        for (int i = 0; i < jumlahBuku; i++) {
-            daftarBuku[i].tampilkan();
-            System.out.println("-------------------");
+        System.out.println("=".repeat(79));
+        System.out.printf("| %-4s | %-30s | %-30s | %2s |%n", "Id", "Judul", "Penulis", "Jumlah");
+        System.out.println("=".repeat(79));
+        for (Buku buku: daftarBuku) {
+            buku.tampilkan();
         }
+        System.out.println("=".repeat(79));
     }
 
-    public Peminjaman buatPeminjaman(Buku buku, Member member, Petugas petugas) {
-        Peminjaman p = new Peminjaman((jumlahPeminjaman + 1), buku, member, petugas);
-        daftarPeminjaman[jumlahPeminjaman] = p;
-        jumlahPeminjaman++;
-        buku.dipinjam();
-        return p;
+    public boolean buatPeminjaman(String idPeminjaman, Petugas petugas, Buku buku, Member member) {
+        if (buku.cekKetersediaan()) {
+            petugas.prosesPeminjaman(idPeminjaman, 5, buku, member, petugas);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

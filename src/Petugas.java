@@ -17,14 +17,4 @@ public class Petugas {
         Peminjaman invoice = new Peminjaman(id, 0, buku, member, petugas);
         return invoice;
     }
-
-
-    @Override
-    public String toString() {
-        return "Petugas{" +
-                "idPetugas='" + id + '\'' +
-                ", nama='" + nama + '\'' +
-                '}';
-    }
-
 }
