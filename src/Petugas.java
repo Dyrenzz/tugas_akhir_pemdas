@@ -9,15 +9,16 @@ public class Petugas {
     public String getIdPetugas() {
         return id;
     }
-    public void setIdPetugas(String idPetugas) {
-        this.id = idPetugas;
-    }
     public String getNama() {
         return nama;
     }
-    public void setNama(String nama) {
-        this.nama = nama;
+
+    public Peminjaman prosesPeminjaman(String id, int lamaPinjam, Buku buku, Member member, Petugas petugas) {
+        Peminjaman invoice = new Peminjaman(id, 0, buku, member, petugas);
+        return invoice;
     }
+
+
     @Override
     public String toString() {
         return "Petugas{" +
