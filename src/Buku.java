@@ -7,11 +7,12 @@ public class Buku {
     private int tahunTerbit;
     private int jumlah;
 
-    public Buku(String id, String judul, int tahunTerbit, int jumlah) {
+    public Buku(String id, String judul, int tahunTerbit, int jumlah, ArrayList<String> penulis) {
         this.id = id;
         this.judul = judul;
         this.tahunTerbit = tahunTerbit;
         this.jumlah = jumlah;
+        this.penulis = penulis;
     }
 
     public String getId() {
@@ -64,6 +65,6 @@ public class Buku {
     }
 
     public void tampilkan() {
-        System.out.printf("| %-4s | %-30s | %-30s | %2s |%n", id, judul, getPenulisString(), String.valueOf(jumlah));
+        System.out.printf("| %-4s | %-36s | %-30s | %3s    |%n", id, judul, getPenulisString(), String.valueOf(jumlah));
     }
 }
