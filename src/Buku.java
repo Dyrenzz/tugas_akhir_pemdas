@@ -5,13 +5,11 @@ public class Buku {
     private String judul;
     private ArrayList<String> penulis;
     private int tahunTerbit;
-    private int jumlah;
 
-    public Buku(String id, String judul, int tahunTerbit, int jumlah, ArrayList<String> penulis) {
+    public Buku(String id, String judul, int tahunTerbit, ArrayList<String> penulis) {
         this.id = id;
         this.judul = judul;
         this.tahunTerbit = tahunTerbit;
-        this.jumlah = jumlah;
         this.penulis = penulis;
     }
 
@@ -32,7 +30,7 @@ public class Buku {
         String names = "";
 
         if (penulis.size() <= 0) {
-            names += "Anomali";
+            names += "Anomaly";
         }
         else if (penulis.size() > 2) {
             names += penulis.get(0);
@@ -46,25 +44,9 @@ public class Buku {
         }
         return names;
     }
-    
 
-    public void dipinjam() {
-        jumlah--;
-    }
-
-    public void dikembalikan() {
-        jumlah++;
-    }
-
-    public boolean cekKetersediaan() {
-        if (jumlah > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void tampilkan() {
-        System.out.printf("| %-4s | %-36s | %-30s | %3s    |%n", id, judul, getPenulisString(), String.valueOf(jumlah));
+    @Override
+    public String toString() {
+        return String.format("| %-4s | %-36s | %-30s |", id, judul, getPenulisString());
     }
 }

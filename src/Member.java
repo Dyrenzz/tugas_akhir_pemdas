@@ -1,18 +1,14 @@
-import java.util.ArrayList;
-
 public class Member {
     private String id;
     private String nama;
     private String alamat;
     private String noTelepon;
-    private ArrayList<Peminjaman> daftarPeminjaman;
 
     public Member(String id, String nama, String alamat, String noTelepon) {
         this.id = id;
         this.nama = nama;
         this.alamat = alamat;
         this.noTelepon = noTelepon;
-        this.daftarPeminjaman = new ArrayList<>();
     }
 
     public String getId() {
@@ -28,34 +24,21 @@ public class Member {
         return noTelepon;
     }
 
-    public void tambahPinjaman(Peminjaman invoice) {
-        daftarPeminjaman.add(invoice);
-    }
+    // public void tambahPinjaman(Peminjaman invoice) {
+    //     daftarPeminjaman.add(invoice);
+    // }
 
-    public void tampilkanDaftarPeminjaman() {
-        if (daftarPeminjaman.size() == 0) {
-            System.out.println("Tidak ada peminjaman!");
-        } 
-        else {
-            System.out.printf("%-5s | %-36s | %-12s | %-12s | %-13s | %-24s | %-24s %n", "Id", "Judul buku", "Tgl Pinjam", "Tg; Kembali", "Status", "Nama Member", "Nama Petugas");
-            for (Peminjaman invoice: daftarPeminjaman) {
-                if(!invoice.getStatus()) {
-                    System.out.println(invoice);
-                }
-            }
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id='" + id + '\'' +
-                ", nama='" + nama + '\'' +
-                ", alamat='" + alamat + '\'' +
-                ", noTelepon='" + noTelepon + '\'' +
-                '}';
-    }
-    
-
-
+    // public void tampilkanDaftarPeminjaman() {
+    //     if (daftarPeminjaman.size() == 0) {
+    //         System.out.println("Tidak ada peminjaman!");
+    //     } 
+    //     else {
+    //         System.out.printf("%-5s | %-36s | %-12s | %-12s | %-13s | %-24s | %-24s %n", "Id", "Judul buku", "Tgl Pinjam", "Tg; Kembali", "Status", "Nama Member", "Nama Petugas");
+    //         for (Peminjaman invoice: daftarPeminjaman) {
+    //             if(!invoice.getStatus()) {
+    //                 System.out.println(invoice);
+    //             }
+    //         }
+    //     }
+    // }
 }

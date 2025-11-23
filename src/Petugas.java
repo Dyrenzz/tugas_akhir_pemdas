@@ -13,14 +13,10 @@ public class Petugas {
         return nama;
     }
 
-    public Peminjaman prosesPeminjaman(String id, int lamaPinjam, Buku buku, Member member, Petugas petugas) {
-        Peminjaman invoice = new Peminjaman(id, 0, buku, member, petugas);
-        buku.dipinjam();
-        member.tambahPinjaman(invoice);
+    public Peminjaman prosesPeminjaman(Peminjaman invoice) {
         return invoice;
     }
-    public void prosesPengembalian(Peminjaman invoice) {
-        invoice.getBuku().dikembalikan();
-        invoice.ubahStatus(true);
+    public void prosesPengembalian(Item itemPj) {
+        itemPj.ubahStatus(true);
     }
 }
