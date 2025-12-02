@@ -1,14 +1,24 @@
+// import java.time.LocalDate;
+
 public class Member {
     private String id;
     private String nama;
     private String alamat;
     private String noTelepon;
+    private String NIS;
+    private String email;
+    private static int nomorUrut;
 
-    public Member(String id, String nama, String alamat, String noTelepon) {
-        this.id = id;
+    public Member(String nama, String alamat, String noTelepon, String NIS, String email) {
         this.nama = nama;
         this.alamat = alamat;
         this.noTelepon = noTelepon;
+        this.NIS = NIS;
+        this.email = email;
+    
+
+        nomorUrut++;
+        this.id = Util.buatId("MB", nomorUrut);
     }
 
     public String getId() {
@@ -23,22 +33,7 @@ public class Member {
     public String getNoTelepon() {
         return noTelepon;
     }
-
-    // public void tambahPinjaman(Peminjaman invoice) {
-    //     daftarPeminjaman.add(invoice);
-    // }
-
-    // public void tampilkanDaftarPeminjaman() {
-    //     if (daftarPeminjaman.size() == 0) {
-    //         System.out.println("Tidak ada peminjaman!");
-    //     } 
-    //     else {
-    //         System.out.printf("%-5s | %-36s | %-12s | %-12s | %-13s | %-24s | %-24s %n", "Id", "Judul buku", "Tgl Pinjam", "Tg; Kembali", "Status", "Nama Member", "Nama Petugas");
-    //         for (Peminjaman invoice: daftarPeminjaman) {
-    //             if(!invoice.getStatus()) {
-    //                 System.out.println(invoice);
-    //             }
-    //         }
-    //     }
-    // }
+    public String getNIS() {
+        return NIS;
+    }
 }

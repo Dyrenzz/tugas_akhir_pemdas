@@ -5,12 +5,23 @@ public class Buku {
     private String judul;
     private ArrayList<String> penulis;
     private int tahunTerbit;
+    private int nomorRak;
+    private String kategori;
+    private String ISBN;
+    private int stock;
+    private static int nomorUrut;
 
-    public Buku(String id, String judul, int tahunTerbit, ArrayList<String> penulis) {
-        this.id = id;
+    public Buku(String ISBN, String judul, ArrayList<String> penulis, int tahunTerbit, String kategori, int nomorRak, int stock) {
+        this.ISBN = ISBN;
         this.judul = judul;
-        this.tahunTerbit = tahunTerbit;
         this.penulis = penulis;
+        this.tahunTerbit = tahunTerbit;
+        this.kategori = kategori;
+        this.nomorRak = nomorRak;
+        this.stock = stock;
+
+        nomorUrut++;
+        this.id = Util.buatId("B", nomorUrut);
     }
 
     public String getId() {
@@ -24,6 +35,17 @@ public class Buku {
     }
     public ArrayList<String> getPenulis() {
         return penulis;
+    }
+    public boolean kurangiStock() {
+        if (stock <= 0) 
+            return false;
+        else {
+            stock--;
+            return true;
+        }
+    }
+    public void tambahStock() {
+        stock++;
     }
 
     public String getPenulisString() {
@@ -44,9 +66,22 @@ public class Buku {
         }
         return names;
     }
+    public int getnomorRak(){
+        return nomorRak;
+    }
+    public String getKategori() {
+        return kategori;
+    }
+    public String getISBN() {
+        return ISBN;
+    }
+    public int getStock() {
+        return stock;
+    }
+
 
     @Override
     public String toString() {
-        return String.format("| %-4s | %-36s | %-30s |", id, judul, getPenulisString());
+        return String.format(" %-4s | %-40s | %-30s | %d", id, judul, getPenulisString(), stock);
     }
 }
