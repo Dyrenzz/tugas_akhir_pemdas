@@ -20,7 +20,7 @@ public class Main {
     static ArrayList<Denda> daftarDenda = new ArrayList<>();
 
     // konfigurasi denda
-    static int BATAS_HARI_PINJAM = -1;
+    static int BATAS_HARI_PINJAM = 5;
     static int DENDA_PER_HARI = 1000;
 
     public static void main(String[] args) {
@@ -43,7 +43,7 @@ public class Main {
         Member currentMember;
 
         // Tampilkan identitas perpustakaan
-        System.out.println(namaPerpus + alamatPerpus);
+        System.out.println(namaPerpus + ", " + alamatPerpus);
 
         do { // Menu: pilih sebagai admin atau member
             System.out.println("==== Masuk Sebagai ====");
@@ -77,7 +77,9 @@ public class Main {
                                 System.out.println("1. Tampilkan Daftar Peminjaman");
                                 System.out.println("2. Tampilkan Daftar Pengembalian");
                                 System.out.println("3. Tambahkan Buku");
-                                System.out.println("4. Keluar\n");
+                                System.out.println("4. Tampilkan Daftar Buku");
+
+                                System.out.println("5. Keluar\n");
 
                                 System.out.print("Masukkan pilihan: ");
                                 pilihanP = input.nextInt();
@@ -91,8 +93,11 @@ public class Main {
                                 else if (pilihanP == 3) {
                                     jalankanRegisterBuku();
                                 }
+                                else if (pilihanP == 4) {
+                                    tampilkanDaftarBuku();
+                                }
                                 else continue;
-                            } while (pilihanP != 4);
+                            } while (pilihanP != 5);
                         } else {
                             System.out.println("Login gagal! NIK atau password salah.");
                             continue;
