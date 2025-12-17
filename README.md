@@ -1,18 +1,19 @@
-## Getting Started
+# Sistem Peminjaman Perpustakaan Sekolah “Pustaka Majapahit”
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Deskripsi
+Proyek ini merupakan tugas akhir mata kuliah **Pemrograman Dasar TIF F**.  
+Program dikembangkan menggunakan paradigma **Pemrograman Berorientasi Objek (OOP)** untuk mensimulasikan sistem peminjaman dan pengembalian buku di perpustakaan sekolah.
 
-## Folder Structure
+Fitur utama yang tersedia:
+- Validasi **Member** (siswa) dan **Pustakawan** (petugas).
+- Menu interaktif berbasis terminal.
+- Peminjaman buku dengan pencatatan otomatis.
+- Pengembalian buku dengan pencatatan otomatis.
+- Pengelolaan data buku, member, pustakawan, serta denda keterlambatan.
 
-The workspace contains two folders by default, where:
+---
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Cara Menjalankan Program
+1. Clone repository ini:
+   ```bash
+   git clone https://github.com/Dyrenzz/tugas_akhir_pemdas.git
